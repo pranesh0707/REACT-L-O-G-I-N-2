@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import "./index.css";
 import Footer from './footer';
+import Data from './data';
+import Header from './header';
 
 const books = [
   { id: 1, title: "The Hidden Legacy", author: "Liam Walker", price: "$12.99", image: "https://images.unsplash.com/photo-1512820790803-83ca734da794" },
@@ -19,11 +21,28 @@ const books = [
 
 const BookList = () => {
   return (
+
+
+    <>
+      
+      <Header />
+
+
+
+
+
+
+
+
+
+
+        {/* DATA FILES  */}
     <div className="mx-auto p-4">
       <h1 className="text-center text-3xl font-bold my-6">📚 Explore Our Book Collection</h1>
 
-      <div className="w-[95%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto">
-        {books.map((book) => (
+      <div className="w-[95%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6 mx-auto">
+        
+       {books.map((book) => (
           <div key={book.id} className="rounded-lg shadow-lg bg-white hover:shadow-xl hover:scale-105 duration-300 p-4 flex flex-col justify-between items-center w-[280px] mx-auto border border-gray-200">
             <img src={book.image} alt={book.title} className="h-44 w-full object-cover rounded-md" />
             <div className="flex flex-col items-center mt-3 text-center">
@@ -36,14 +55,20 @@ const BookList = () => {
             </button>
           </div>
         ))}
+        
         <br></br>
         <br></br>
+        <div>
+          <Data />
+        </div>
+
+        <br />
         <div>
           <Footer />
         </div>
       </div>
     </div>
-  );
+    </> );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
